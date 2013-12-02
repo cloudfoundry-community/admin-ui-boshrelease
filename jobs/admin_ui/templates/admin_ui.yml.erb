@@ -1,0 +1,31 @@
+---
+cloud_controller_discovery_interval: 300
+cloud_controller_uri: <%= p("admin_ui.cloud_controller_uri") %>
+component_connection_retries: 2
+data_file: /var/vcap/store/admin_ui/data.json
+log_file: /var/vcap/sys/log/admin_ui/admin_ui.log
+log_file_page_size: 51200
+mbus: nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= p("nats.address") %>:<%= p("nats.port") %>
+monitored_components: [NATS, CloudController, DEA, HealthManager, Router, -Provisioner, ALL]
+nats_discovery_interval: 30
+nats_discovery_timeout: 10
+port: 8070
+receiver_emails: [ ]
+sender_email:
+  server: 10.10.10.10
+  account: system@10.10.10.10
+stats_file: /var/vcap/store/admin_ui/stats.json
+stats_refresh_time: 300
+stats_retries: 5
+stats_retry_interval: 300
+tasks_refresh_interval: 5000
+uaa_admin_credentials:
+  username: <%= p("admin_ui.uaa_admin_credentials.username") %>
+  password: <%= p("admin_ui.uaa_admin_credentials.password") %>
+ui_credentials:
+  username: <%= p("admin_ui.ui_credentials.username") %>
+  password: <%= p("admin_ui.ui_credentials.password") %>
+ui_admin_credentials:
+  username: <%= p("admin_ui.ui_admin_credentials.username") %>
+  password: <%= p("admin_ui.ui_admin_credentials.password") %>
+varz_discovery_interval: 30

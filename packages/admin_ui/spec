@@ -1,0 +1,9 @@
+---
+name: admin_ui
+
+dependencies:
+ - ruby
+
+files:
+  - admin_ui/{Gemfile,Gemfile.lock}
+  - admin_ui/{lib,bin}/**/*

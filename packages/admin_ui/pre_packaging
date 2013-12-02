@@ -1,0 +1,5 @@
+# abort script on any command that exits with a non zero value
+set -e
+
+cd ${BUILD_DIR}/admin_ui
+BUNDLE_WITHOUT=development:test bundle package --all

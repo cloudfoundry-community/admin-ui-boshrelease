@@ -1,0 +1,33 @@
+---
+name: admin_ui
+templates:
+  admin_ui.yml.erb: config/admin_ui.yml
+  admin_ui_ctl.erb: bin/admin_ui_ctl
+packages:
+  - admin_ui
+  - ruby
+  - libyaml
+  - common
+properties:
+  nats.user:
+    description: "Username for cc client to connect to NATS"
+  nats.password:
+    description: "Password for cc client to connect to NATS"
+  nats.address:
+    description: "IP address of Cloud Foundry NATS server"
+  nats.port:
+    description: "IP port of Cloud Foundry NATS server"
+  admin_ui.cloud_controller_uri:
+    description: "Full url of the Cloud Controller api"
+  admin_ui.uaa_admin_credentials.username:
+    description: "Username of uaa admin user"
+  admin_ui.uaa_admin_credentials.password:
+    description: "Password for uaa admin user"
+  admin_ui.ui_credentials.username:
+    description: "Username for admin ui user"
+  admin_ui.ui_credentials.password:
+    description: "Password for admin ui user"
+  admin_ui.ui_admin_credentials.username:
+    description: "Username for admin ui admin"
+  admin_ui.ui_admin_credentials.password:
+    description: "Password for admin ui admin"

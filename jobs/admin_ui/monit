@@ -1,0 +1,6 @@
+check process admin_ui
+  with pidfile /var/vcap/sys/run/admin_ui/admin_ui.pid
+  start program "/var/vcap/jobs/admin_ui/bin/admin_ui_ctl start"
+  stop program "/var/vcap/jobs/admin_ui/bin/admin_ui_ctl stop"
+  group vcap
+  if totalmem > 500 Mb for 2 cycles then restart

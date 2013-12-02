@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+JOB_NAME=admin_ui
+JOB_DIR=/var/vcap/jobs/$JOB_NAME
+PACKAGE_DIR=/var/vcap/packages/$JOB_NAME
+STORE_DIR=/var/vcap/store/$JOB_NAME
+CONFIG=$JOB_DIR/config/$JOB_NAME.yml
+RUN_DIR=/var/vcap/sys/run/$JOB_NAME
+LOG_DIR=/var/vcap/sys/log/$JOB_NAME
+PIDFILE=$RUN_DIR/$JOB_NAME.pid
+
+
+export PATH=/var/vcap/packages/ruby/bin:$PATH
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+    mkdir -p $STORE_DIR
+
+    # Create a data file with initial json
+    DATA_FILE=$STORE_DIR/data.json
+    if [ ! -f $DATA_FILE ]
+    then
+      echo '{ "items": {}, "notified": {} }' > $DATA_FILE
+    fi
+
+    echo $$ > $PIDFILE
+
+    cd $PACKAGE_DIR
+
+    exec bundle exec bin/admin -c $CONFIG \
+         >>$LOG_DIR/$JOB_NAME.stdout.log \
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
+    ;;
+
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: admin_ui_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0

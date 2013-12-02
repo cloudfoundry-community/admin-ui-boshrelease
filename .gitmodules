@@ -1,0 +1,3 @@
+[submodule "src/admin_ui"]
+	path = src/admin_ui
+	url = https://github.com/cloudfoundry-incubator/admin-ui.git
