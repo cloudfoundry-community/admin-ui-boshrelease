@@ -35,9 +35,9 @@ Create a `config/private.yml` file with the following contents:
 ---
 blobstore:
   s3:
-      access_key_id:     ACCESS
-          secret_access_key: PRIVATE
-          ```
+    access_key_id:     ACCESS
+    secret_access_key: PRIVATE
+```
 
 You can now create final releases for everyone to enjoy!
 
