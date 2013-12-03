@@ -7,3 +7,4 @@ dependencies:
 files:
   - admin_ui/{Gemfile,Gemfile.lock}
   - admin_ui/{lib,bin}/**/*
+  - vcap-common/**/*

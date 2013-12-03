@@ -1,0 +1,20 @@
+---
+logging:
+  file: /var/vcap/sys/log/admin_ui/cf-registrar.log
+  level: info
+
+message_bus_servers:
+  - nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= p("nats.address") %>:<%= p("nats.port") %>
+
+<% if_p("admin_ui.uri") do |uri| %>
+uri:
+  - <%= uri %>
+host: <%= spec.networks.send(p("networks.apps")).ip %>
+index: <%= spec.index %>
+port: 8070
+tags:
+  component: admin_ui
+varz:
+  type: admin_ui
+<% end %>
+

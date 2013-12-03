@@ -1,7 +1,13 @@
 # abort script on any command that exits with a non zero value
 set -e
 
-cp -a admin_ui/* ${BOSH_INSTALL_TARGET}
+cd ${BOSH_INSTALL_TARGET}
+cp -a ${BOSH_COMPILE_TARGET}/admin_ui admin_ui
+cd admin_ui
+/var/vcap/packages/ruby/bin/bundle install --local --deployment --without=development test
+
 
 cd ${BOSH_INSTALL_TARGET}
+cp -a ${BOSH_COMPILE_TARGET}/vcap-common vcap-common
+cd vcap-common
 /var/vcap/packages/ruby/bin/bundle install --local --deployment --without=development test

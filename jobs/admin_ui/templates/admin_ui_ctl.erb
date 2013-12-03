@@ -35,7 +35,7 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-    cd $PACKAGE_DIR
+    cd $PACKAGE_DIR/admin_ui
 
     exec bundle exec bin/admin -c $CONFIG \
          >>$LOG_DIR/$JOB_NAME.stdout.log \

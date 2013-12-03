@@ -3,6 +3,8 @@ name: admin_ui
 templates:
   admin_ui.yml.erb: config/admin_ui.yml
   admin_ui_ctl.erb: bin/admin_ui_ctl
+  cf-registrar_ctl.erb: bin/admin_ui_cf-registrar_ctl
+  cf-registrar.config.yml.erb: config/cf-registrar/config.yml
 packages:
   - admin_ui
   - ruby
@@ -31,3 +33,7 @@ properties:
     description: "Username for admin ui admin"
   admin_ui.ui_admin_credentials.password:
     description: "Password for admin ui admin"
+  admin_ui.uri:
+    description: "Uri to register with the router, also requires the apps network to be set"
+  networks.apps:
+    description: "The App network name"

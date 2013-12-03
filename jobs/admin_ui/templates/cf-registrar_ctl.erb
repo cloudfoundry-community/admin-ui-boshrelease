@@ -1,0 +1,41 @@
+#!/bin/bash -e
+
+export PATH=/var/vcap/packages/ruby/bin:$PATH
+RUN_DIR=/var/vcap/sys/run/admin_ui
+LOG_DIR=/var/vcap/sys/log/admin_ui
+PIDFILE=$RUN_DIR/cf-registrar.pid
+VCAP_COMMON_PATH=/var/vcap/packages/admin_ui/vcap-common
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE "VCAP registrar"
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    export CONFIG_FILE=/var/vcap/jobs/admin_ui/config/cf-registrar/config.yml
+
+    cd $VCAP_COMMON_PATH
+    exec /var/vcap/packages/ruby/bin/bundle exec \
+         $VCAP_COMMON_PATH/bin/cf-registrar \
+         --register-with-router \
+         >>$LOG_DIR/cf-registrar.stdout.log \
+         2>>$LOG_DIR/cf-registrar.stderr.log
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: cf-registrar_ctl {start|stop}" ;;
+
+esac
+exit 0
