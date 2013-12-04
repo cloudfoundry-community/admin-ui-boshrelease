@@ -14,14 +14,12 @@ cd admin-ui-boshrelease
 bosh upload release releases/admin-ui-1.yml
 ```
 
-Now create a deployment file and deploy:
+Now create a deployment file (using the files in examples as a starting point) and deploy:
 
 ```
 bosh deployment path/to/deployment.yml
 bosh deploy
 ```
-
-## Development
 
 ## Create new final release
 
