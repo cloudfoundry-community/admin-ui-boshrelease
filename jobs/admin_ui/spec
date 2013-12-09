@@ -21,6 +21,9 @@ properties:
     description: "IP port of Cloud Foundry NATS server"
   admin_ui.cloud_controller_uri:
     description: "Full url of the Cloud Controller api"
+  admin_ui.cloud_controller_ssl_verify_none:
+    description: "Disable ssl verify"
+    default: false
   admin_ui.uaa_admin_credentials.username:
     description: "Username of uaa admin user"
   admin_ui.uaa_admin_credentials.password:
