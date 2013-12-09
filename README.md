@@ -11,7 +11,7 @@ bosh target BOSH_URL
 bosh login
 git clone git@github.com:cloudfoundry-community/admin-ui-boshrelease.git
 cd admin-ui-boshrelease
-bosh upload release releases/admin-ui-1.yml
+bosh upload release releases/admin-ui-2.yml
 ```
 
 Now create a deployment file (using the files in examples as a starting point) and deploy:
