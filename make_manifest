@@ -1,0 +1,46 @@
+#!/bin/sh
+
+release_dir=$(dirname $0)
+templates=$release_dir/templates
+
+infrastructure=$1
+
+shift
+
+if [ "$infrastructure" != "aws" ] && \
+    [ "$infrastructure" != "warden" ] && \
+    [ "$infrastructure" != "vsphere" ] ; then
+  echo "usage: ./make_manifest <aws|warden|vsphere> [stubs...]"
+  exit 1
+fi
+
+if [ "$infrastructure" == "warden" ] ; then
+  BOSH_STATUS=$(bosh status)
+  EXPECTED_DIRECTOR_NAME="Bosh Lite Director"
+  if [[ "$(echo "$BOSH_STATUS" | grep Name)" != *"$EXPECTED_DIRECTOR_NAME"* ]]; then
+    echo "Can only target $EXPECTED_DIRECTOR_NAME. Please use 'bosh target' before running this script."
+    exit 1
+  fi
+
+  temp_dir=$TMPDIR/admin_ui-$$.tmp
+  mkdir -p $temp_dir
+
+  bosh -q download manifest cf-warden $temp_dir/cf-warden.yml
+  sed -i.back 's/!//g' $temp_dir/cf-warden.yml
+
+  spiff merge \
+    $templates/admin-ui-deployment.yml \
+    $temp_dir/cf-warden.yml \
+    $templates/warden-stub.yml \
+      $* > $release_dir/admin-ui.local.yml
+
+  rm -f $temp_dir/*
+  rmdir $temp_dir
+
+  bosh deployment $release_dir/admin-ui.local.yml
+  bosh status
+else
+  spiff merge \
+    $templates/admin-ui-deployment.yml \
+    $*
+fi

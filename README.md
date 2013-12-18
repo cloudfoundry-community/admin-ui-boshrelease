@@ -14,10 +14,13 @@ cd admin-ui-boshrelease
 bosh upload release releases/admin-ui-2.yml
 ```
 
-Now create a deployment file (using the files in examples as a starting point) and deploy:
+### bosh-lite/warden deployments
+
+Make sure you have [deployed Cloud Foundry](https://github.com/cloudfoundry/bosh-lite#deploy-cloud-foundry) first.
+With Cloud Foundry deployed to your bosh-lite run:
 
 ```
-bosh deployment path/to/deployment.yml
+./make_manifest warden
 bosh deploy
 ```
 

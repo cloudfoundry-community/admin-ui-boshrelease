@@ -1,0 +1,8 @@
+---
+name: admin-ui
+
+meta:
+  network: cf1
+  subdomain: admin
+  cf_admin_username: admin
+  cf_admin_password: admin
