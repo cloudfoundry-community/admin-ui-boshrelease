@@ -9,7 +9,7 @@ Usage
 To use this BOSH release, first upload it to your bosh:
 
 ```
-bosh upload release https://admin-ui-boshrelease.s3.amazonaws.com/boshrelease-admin-ui-2.tgz
+bosh upload release https://admin-ui-boshrelease.s3.amazonaws.com/boshrelease-admin-ui-3.tgz
 ```
 
 To deploy it you will need the source repository that contains templates:
@@ -17,7 +17,7 @@ To deploy it you will need the source repository that contains templates:
 ```
 git clone https://github.com/cloudfoundry-community/admin-ui-boshrelease.git
 cd admin-ui-boshrelease
-git checkout v2
+git checkout v3
 ```
 
 ### bosh-lite/warden deployments

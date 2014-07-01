@@ -1,0 +1,48 @@
+---
+packages:
+- name: admin_ui
+  version: !binary |-
+    OWRlZmY5YTg4M2FiOWYyYTMyZGYwMDYzZWQ3N2ZhNjVkMTdjOTZlZQ==
+  sha1: !binary |-
+    ZWU1MjM0NGQzOTMyNDJiM2IxNDEyNDVlYTNjMDRhYTk1YmQ4MjE2ZA==
+  fingerprint: !binary |-
+    OWRlZmY5YTg4M2FiOWYyYTMyZGYwMDYzZWQ3N2ZhNjVkMTdjOTZlZQ==
+  dependencies:
+  - ruby
+- name: common
+  version: !binary |-
+    NjI0MWVkNDI2YjU5ZDA5ZTUxOTllZWU4ZWU3MWNkYTNiMzVkNmMwNA==
+  sha1: !binary |-
+    YjQ1MjdjNjJmZDI5ZjUwYjNiNTcwZGUzZDk4OTEyYTFmNDI0NTc2NQ==
+  fingerprint: !binary |-
+    NjI0MWVkNDI2YjU5ZDA5ZTUxOTllZWU4ZWU3MWNkYTNiMzVkNmMwNA==
+  dependencies: []
+- name: libyaml
+  version: !binary |-
+    NjgxYmI0NTVjMzVlZjE3Y2FiYmQ0MTM0NGY5MjRjYjYxYzJiYjhlNw==
+  sha1: !binary |-
+    YThhZTEwODhiYzc5ZDQ0NmFlMWYwNjE2MzcxZTRlMzJjZjM0NWQwZg==
+  fingerprint: !binary |-
+    NjgxYmI0NTVjMzVlZjE3Y2FiYmQ0MTM0NGY5MjRjYjYxYzJiYjhlNw==
+  dependencies: []
+- name: ruby
+  version: !binary |-
+    YzE0NmNiZDM1ZGQyZjU0OWIwZjkwYzdmNDBkNWEwZTVjYjM2OThjNA==
+  sha1: !binary |-
+    MmRhZTE4YWVhMWI1NTBiZWM3Y2NkNmNjMGU5ZWU4ODk4NzZlZWI4MQ==
+  fingerprint: !binary |-
+    YzE0NmNiZDM1ZGQyZjU0OWIwZjkwYzdmNDBkNWEwZTVjYjM2OThjNA==
+  dependencies:
+  - libyaml
+jobs:
+- name: admin_ui
+  version: !binary |-
+    N2NkZWI4Mjc5N2JiMzg0Yzc2MTA0NTY3NTA2OTc1YTBhOWY3OTg0NA==
+  fingerprint: !binary |-
+    N2NkZWI4Mjc5N2JiMzg0Yzc2MTA0NTY3NTA2OTc1YTBhOWY3OTg0NA==
+  sha1: !binary |-
+    Y2M0YmFlYjNlYjQzZjM3NWIxM2Y0NWNlYzk4Zjk0NjJkZWY2ZTBlMA==
+commit_hash: c28202c3
+uncommitted_changes: true
+name: admin-ui
+version: '3'
