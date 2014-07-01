@@ -2,7 +2,10 @@
 name: admin-ui
 
 meta:
-  network: cf1
+  network: cf2
   subdomain: admin
   cf_admin_username: admin
   cf_admin_password: admin
+
+compilation:
+  network: cf2

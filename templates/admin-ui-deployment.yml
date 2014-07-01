@@ -4,7 +4,7 @@ meta:
   subdomain: (( merge || "admin" )
   cf_admin_username: (( merge || "admin" )
   cf_admin_password: (( merge || "admin" )
-  
+
 name: admin-ui
 director_uuid: (( merge ))
 release:
@@ -13,7 +13,7 @@ release:
 compilation: (( merge ))
 update: (( merge ))
 networks: (( merge ))
-resource_pools: 
+resource_pools:
 - name: small_z1
   network: (( merge ))
   size: (( auto ))
@@ -24,13 +24,13 @@ jobs:
   template: admin_ui
   instances: 1
   resource_pool: small_z1
-  networks: 
+  networks:
     - name: (( meta.network ))
-      static_ips: (( static_ips(10) ))
+      static_ips: (( static_ips(15) ))
 properties:
-  cc: 
+  cc:
     srv_api_uri: (( merge ))
-  system_domain: (( merge )) 
+  system_domain: (( merge ))
   admin_ui:
     cloud_controller_uri: (( properties.cc.srv_api_uri ))
     uaa_admin_credentials:
@@ -43,9 +43,9 @@ properties:
       username: (( merge || "user" ))
       password: (( merge || "user" ))
     uri: (( meta.subdomain "." properties.system_domain ))
-  networks: 
+  networks:
     apps: (( meta.network ))
-  nats: 
+  nats:
     user: (( merge ))
     password: (( merge ))
     address: (( merge ))
