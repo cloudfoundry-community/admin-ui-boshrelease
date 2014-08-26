@@ -22,8 +22,7 @@ if [ "$infrastructure" == "warden" ] ; then
     exit 1
   fi
 
-  temp_dir=$TMPDIR/admin_ui-$$.tmp
-  mkdir -p $temp_dir
+  temp_dir=$(mktemp -d admin_ui-XXXXXXXXXX) || { echo "Failed to create temp file"; exit 1; }
 
   bosh -q download manifest cf-warden $temp_dir/cf-warden.yml
   sed -i.back 's/!//g' $temp_dir/cf-warden.yml
