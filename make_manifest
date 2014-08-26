@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 release_dir=$(dirname $0)
 templates=$release_dir/templates
