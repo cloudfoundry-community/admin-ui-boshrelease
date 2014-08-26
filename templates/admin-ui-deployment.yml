@@ -33,6 +33,7 @@ properties:
   system_domain: (( merge ))
   admin_ui:
     cloud_controller_uri: (( properties.cc.srv_api_uri ))
+    cloud_controller_ssl_verify_none: (( properties.ssl.skip_cert_verify ))
     uaa_admin_credentials:
       username: (( meta.cf_admin_username ))
       password: (( meta.cf_admin_password ))
@@ -43,6 +44,8 @@ properties:
       username: (( merge || "user" ))
       password: (( merge || "user" ))
     uri: (( meta.subdomain "." properties.system_domain ))
+  ssl:
+    skip_cert_verify: (( merge || false ))
   networks:
     apps: (( meta.network ))
   nats:
