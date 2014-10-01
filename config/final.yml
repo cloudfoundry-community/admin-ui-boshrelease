@@ -1,5 +1,5 @@
 --- 
-final_name: bosh
+final_name: admin-ui
 blobstore:
   provider: s3
   options: 
