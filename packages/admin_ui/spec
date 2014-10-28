@@ -2,9 +2,11 @@
 name: admin_ui
 
 dependencies:
- - ruby
+  - ruby
+  - libpq
+  - sqlite
 
 files:
   - admin_ui/{Gemfile,Gemfile.lock}
-  - admin_ui/{lib,bin}/**/*
+  - admin_ui/{lib,bin,db}/**/*
   - vcap-common/**/*
