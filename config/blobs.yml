@@ -1,26 +1,24 @@
 ---
 libyaml/yaml-0.1.4.tgz:
-  object_id: 9c006ee4-ef51-4d96-93e1-dfdccbc0b26f
+  object_id: 720a650d-0b1c-4918-92de-7be57b679fe7
   sha: !binary |-
     ZTBlNWUwOTE5MmFiMTBhNjA3ZTNkYTI5NzBkYjQ5MjExOGY1NjBmMg==
   size: 471759
-postgres/postgresql-9.0.3.tar.gz:
-  object_id: rest/objects/4e4e78bca61e121004e4e7d51d950e04fbd4f2ca2d89
-  sha: c8fb5d1d7930e78211e554bb5751183a8148d0ee
-  size: 18335858
-ruby/bundler-1.6.3.gem:
-  object_id: 2cbdd2bc-bc00-4b4b-b617-2433cea68a02
-  sha: c8a000f75b6a6f60d9fb727f8076ec9171e14c20
-  size: 293376
-ruby/ruby-2.1.2.tar.gz:
-  object_id: 571e7798-c372-42b9-81bf-76bb3a3adff1
-  sha: b818d56b4638f1949239038623b761517d4a5686
-  size: 15096114
-ruby/rubygems-2.3.0.tgz:
-  object_id: df4ed379-a229-4a7c-b6ea-734e446c4f69
-  sha: 6902fff7749fa264b8f9020f33daf92170375f75
-  size: 431240
-ruby/yaml-0.1.5.tar.gz:
-  object_id: db07c821-62f8-4fd1-a99a-ff1c88b2474b
-  sha: 8b78cb9f759c7d80db8a7328c0ebecfe34fde737
-  size: 504897
+ruby/bundler-1.2.1.gem:
+  object_id: 458d4d9f-aa0e-488d-94d9-ca8b50d6dfb3
+  sha: !binary |
+    -
+    MGNiZTZhZDdhNDFmMDY0ZDZjMTFjMTA1ODQ2NWZmZmIxYmQ1ODA2OQ==
+  size: 226816
+ruby/ruby-1.9.3-p448.tar.gz:
+  object_id: 3fe8a983-f754-44c4-8694-0fba414eb5a7
+  sha: !binary |
+    -
+    YzdmNzM2ZTNiYzFjYTFlNjYxOWE5MTIxODM3ZGQwODQwYWFkNzdjZQ==
+  size: 12559260
+ruby/rubygems-1.8.24.tgz:
+  object_id: 824b70e4-8269-4e4b-a347-de17333f7971
+  sha: !binary |
+    -
+    MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
+  size: 380101
