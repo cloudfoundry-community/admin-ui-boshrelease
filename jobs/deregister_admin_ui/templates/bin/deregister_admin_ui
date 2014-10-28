@@ -1,0 +1,39 @@
+#!/bin/env ruby
+
+%w[uaa_url admin_client_secret client_id client_secret admin_scopes user_scopes].each do |var|
+  fail "Please make sure #{var.upcase} is set" unless ENV[var.upcase]
+  instance_variable_set "@#{var}".to_sym, ENV[var.upcase]
+end
+
+puts "Getting admin client token"
+`uaac target #{@uaa_url} --skip-ssl-validation`
+`uaac token client get admin --secret #{@admin_client_secret}`
+
+client_args = [
+  "--scope admin_ui.admin,admin_ui.user,openid",
+  "--authorities cloud_controller.admin,cloud_controller.read,cloud_controller.write,openid,scim.read",
+  "--autoapprove true",
+  "--authorized_grant_types authorization_code,client_credentials,refresh_token"
+]
+
+unless `uaac client get #{@client_id}` =~ /NotFound/
+  puts "Deleting #{@client_id} client"
+  puts `uaac client delete #{@client_id}`
+end
+
+scopes = @admin_scopes.split(',') + @user_scopes.split(',')
+puts "Scopes to clean #{scopes.join(',')}"
+scopes.each do |scope|
+  next if `uaac group get #{scope}` =~ /NotFound/
+  puts "Deleting group: #{scope}"
+  puts `uaac group delete #{scope}`
+end
+
+current_authorities = `uaac client get admin -a authorities`.scan(/: (.+)/).flatten
+if current_authorities.include? "scim.write"
+  puts "Removing scim.write scope to admin client"
+  authorities = (current_authorities - ["scim.write"]).join(',')
+  puts `uaac client update admin --authorities #{authorities}`
+end
+
+puts "Done"

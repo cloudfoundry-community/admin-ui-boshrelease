@@ -1,0 +1,29 @@
+---
+name: deregister_admin_ui
+packages:
+  - ruby
+  - uaac
+templates:
+  bin/run: bin/run
+  bin/deregister_admin_ui: bin/deregister_admin_ui
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  data/properties.sh.erb: data/properties.sh
+
+properties:
+  admin_ui.uaa.url:
+    description: "Uaa url"
+  admin_ui.uaa.admin_client_secret:
+    description: "Uaa admin client secret"
+
+  admin_ui.uaa.client.id:
+    description: "Uaa OAuth client id"
+  admin_ui.uaa.client.secret:
+    description: "Uaa OAuth client secret"
+  admin_ui.uaa.scopes.admin:
+    description: "Array of uaa OAuth scopes of admin-ui admins"
+    default: [ admin_ui.admin ]
+  admin_ui.uaa.scopes.user:
+    description: "Array of uaa OAuth scopes of admin-ui users"
+    default: [ admin_ui.user ]
+
