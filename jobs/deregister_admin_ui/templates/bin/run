@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/deregister_admin_ui/helpers/ctl_setup.sh 'deregister_admin_ui'
+source /var/vcap/jobs/deregister_admin_ui/data/properties.sh
+
+export HOME=/var/vcap/data
+ruby /var/vcap/jobs/deregister_admin_ui/bin/deregister_admin_ui

@@ -1,0 +1,21 @@
+set -e -x
+
+version=9.0.3
+
+tar xzf postgres/postgresql-${version}.tar.gz
+
+cd postgresql-${version}
+
+./configure --prefix=${BOSH_INSTALL_TARGET}
+
+pushd src/bin/pg_config
+  make
+  make install
+popd
+
+cp -LR src/include ${BOSH_INSTALL_TARGET}
+
+pushd src/interfaces/libpq
+  make
+  make install
+popd

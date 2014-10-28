@@ -1,7 +1,7 @@
----
+--- 
+final_name: admin-ui
 blobstore:
   provider: s3
-  options:
+  options: 
     bucket_name: admin-ui-boshrelease
     encryption_key: cloudfoundry-community
-final_name: admin-ui

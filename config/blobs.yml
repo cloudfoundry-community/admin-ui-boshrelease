@@ -1,6 +1,6 @@
 ---
 libyaml/yaml-0.1.4.tgz:
-  object_id: 9c006ee4-ef51-4d96-93e1-dfdccbc0b26f
+  object_id: 720a650d-0b1c-4918-92de-7be57b679fe7
   sha: !binary |-
     ZTBlNWUwOTE5MmFiMTBhNjA3ZTNkYTI5NzBkYjQ5MjExOGY1NjBmMg==
   size: 471759
@@ -19,3 +19,13 @@ ruby/rubygems-1.8.24.tgz:
   sha: !binary |-
     MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
   size: 380101
+postgres/postgresql-9.0.3.tar.gz:
+  object_id: eea84b2b-7aca-4a65-af30-347fba4b28f3
+  sha: !binary |-
+    YzhmYjVkMWQ3OTMwZTc4MjExZTU1NGJiNTc1MTE4M2E4MTQ4ZDBlZQ==
+  size: 18335858
+sqlite/sqlite-autoconf-3070500.tar.gz:
+  object_id: 709b2b13-a1cd-47d5-8e09-028472b1695c
+  sha: !binary |-
+    NGUxMzM4NDk3YjhkYTUwYjg0MzA3MTkxYmIzNDE4ZTllYzU3MTVkNw==
+  size: 1551070

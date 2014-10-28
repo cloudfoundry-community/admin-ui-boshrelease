@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export UAA_URL="<%= p('admin_ui.uaa.url') %>"
+export ADMIN_CLIENT_SECRET="<%= p('admin_ui.uaa.admin_client_secret') %>"
+export CLIENT_ID="<%= p('admin_ui.uaa.client.id') %>"
+export CLIENT_SECRET="<%= p('admin_ui.uaa.client.secret') %>"
+export ADMIN_SCOPES="<%= p('admin_ui.uaa.scopes.admin').join(",") %>"
+export USER_SCOPES="<%= p('admin_ui.uaa.scopes.user').join(",") %>"
+export ADMINS="<%= p('admin_ui.admins').join(",") %>"
+export USERS="<%= p('admin_ui.users').join(",") %>"

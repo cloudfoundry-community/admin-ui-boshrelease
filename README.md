@@ -29,6 +29,16 @@ Make sure you have [deployed Cloud Foundry](https://github.com/cloudfoundry/bosh
 bosh deploy
 ```
 
+When deployed you can register the admin-ui with the uaa by running:
+```
+bosh run errand register_admin_ui
+```
+
+To deregister the admin-ui you can run:
+```
+bosh run errand deregister_admin_ui
+```
+
 Create new final release
 ------------------------
 

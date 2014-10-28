@@ -9,7 +9,9 @@ packages:
   - admin_ui
   - ruby
   - libyaml
+  - libpq
   - common
+
 properties:
   nats.user:
     description: "Username for cc client to connect to NATS"
@@ -24,19 +26,48 @@ properties:
   admin_ui.cloud_controller_ssl_verify_none:
     description: "Disable ssl verify"
     default: false
-  admin_ui.uaa_admin_credentials.username:
-    description: "Username of uaa admin user"
-  admin_ui.uaa_admin_credentials.password:
-    description: "Password for uaa admin user"
-  admin_ui.ui_credentials.username:
-    description: "Username for admin ui user"
-  admin_ui.ui_credentials.password:
-    description: "Password for admin ui user"
-  admin_ui.ui_admin_credentials.username:
-    description: "Username for admin ui admin"
-  admin_ui.ui_admin_credentials.password:
-    description: "Password for admin ui admin"
   admin_ui.uri:
     description: "Uri to register with the router, also requires the apps network to be set"
   networks.apps:
     description: "The App network name"
+
+  admin_ui.uaadb.scheme:
+    description: "UAA db scheme"
+    default: postgres
+  admin_ui.uaadb.address:
+    description: "UAA db address"
+  admin_ui.uaadb.port:
+    description: "UAA db port"
+  admin_ui.uaadb.database:
+    description: "UAA db database name"
+    default: uaadb
+  admin_ui.uaadb.username:
+    description: "UAA db username"
+  admin_ui.uaadb.password:
+    description: "UAA db username"
+
+  admin_ui.ccdb.scheme:
+    description: "CC db scheme"
+    default: postgres
+  admin_ui.ccdb.address:
+    description: "CC db address"
+  admin_ui.ccdb.port:
+    description: "CC db port"
+  admin_ui.ccdb.database:
+    description: "CC db database name"
+    default: ccdb
+  admin_ui.ccdb.username:
+    description: "CC db username"
+  admin_ui.ccdb.password:
+    description: "CC db username"
+
+  admin_ui.uaa.client.id:
+    description: "Uaa OAuth client id"
+  admin_ui.uaa.client.secret:
+    description: "Uaa OAuth client secret"
+  admin_ui.uaa.scopes.admin:
+    description: "Array of uaa OAuth scopes of admin-ui admins"
+    default: [ admin_ui.admin ]
+  admin_ui.uaa.scopes.user:
+    description: "Array of uaa OAuth scopes of admin-ui users"
+    default: [ admin_ui.user ]
