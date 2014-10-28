@@ -1,9 +1,19 @@
+<% 
+def get_db_uri(db)
+  db_path = "admin_ui.#{db}"
+  [p("#{db_path}.scheme"), "://", p("#{db_path}.username"), ":", p("#{db_path}.password"),
+  "@", p("#{db_path}.address"), ":", p("#{db_path}.port"), "/", p("#{db_path}.database")].join("")
+end
+%>
 ---
+bind_address: 0.0.0.0
+ccdb_uri: <%= get_db_uri("ccdb") %>
 cloud_controller_discovery_interval: 300
-cloud_controller_uri: <%= p("admin_ui.cloud_controller_uri") %>
 cloud_controller_ssl_verify_none: <%= p("admin_ui.cloud_controller_ssl_verify_none") %>
+cloud_controller_uri: <%= p("admin_ui.cloud_controller_uri") %>
 component_connection_retries: 2
 data_file: /var/vcap/store/admin_ui/data.json
+db_uri: sqlite://var/vcap/store/admin_ui/store.db
 log_file: /var/vcap/sys/log/admin_ui/admin_ui.log
 log_file_page_size: 51200
 mbus: nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= p("nats.address") %>:<%= p("nats.port") %>
@@ -16,17 +26,14 @@ sender_email:
   server: 10.10.10.10
   account: system@10.10.10.10
 stats_file: /var/vcap/store/admin_ui/stats.json
-stats_refresh_time: 300
+stats_refresh_schedules: [ '0 5 * * *' ]
 stats_retries: 5
 stats_retry_interval: 300
 tasks_refresh_interval: 5000
-uaa_admin_credentials:
-  username: <%= p("admin_ui.uaa_admin_credentials.username") %>
-  password: <%= p("admin_ui.uaa_admin_credentials.password") %>
-ui_credentials:
-  username: <%= p("admin_ui.ui_credentials.username") %>
-  password: <%= p("admin_ui.ui_credentials.password") %>
-ui_admin_credentials:
-  username: <%= p("admin_ui.ui_admin_credentials.username") %>
-  password: <%= p("admin_ui.ui_admin_credentials.password") %>
+uaa_client:
+  id: <%= p("admin_ui.uaa.client.id") %>
+  secret: <%= p("admin_ui.uaa.client.secret") %>
+uaadb_uri: <%= get_db_uri("uaadb") %>
+uaa_groups_admin: [ <%= p("admin_ui.uaa.scopes.admin").join(", ") %> ]
+uaa_groups_user: [ <%= p("admin_ui.uaa.scopes.user").join(", ") %> ] 
 varz_discovery_interval: 30
