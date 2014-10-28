@@ -20,12 +20,12 @@ ruby/rubygems-1.8.24.tgz:
     MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
   size: 380101
 postgres/postgresql-9.0.3.tar.gz:
-  object_id: eea84b2b-7aca-4a65-af30-347fba4b28f3
+  object_id: 4c28f40f-3d59-4015-9765-bead803093ad
   sha: !binary |-
     YzhmYjVkMWQ3OTMwZTc4MjExZTU1NGJiNTc1MTE4M2E4MTQ4ZDBlZQ==
   size: 18335858
 sqlite/sqlite-autoconf-3070500.tar.gz:
-  object_id: 709b2b13-a1cd-47d5-8e09-028472b1695c
+  object_id: f603856f-11db-4b56-91dc-5c6f3ce6fedd
   sha: !binary |-
     NGUxMzM4NDk3YjhkYTUwYjg0MzA3MTkxYmIzNDE4ZTllYzU3MTVkNw==
   size: 1551070
