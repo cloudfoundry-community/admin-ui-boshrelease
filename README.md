@@ -27,8 +27,12 @@ Make sure you have [deployed Cloud Foundry](https://github.com/cloudfoundry/bosh
 ```
 ./make_manifest warden
 bosh deploy
+bosh run errand register_admin_ui
 ```
 
+Now you can browse to [http://admin.10.244.0.34.xip.io](http://admin.10.244.0.34.xip.io) and login with your cloud foundry admin user.
+
+### Errands
 When deployed you can register the admin-ui with the uaa by running:
 ```
 bosh run errand register_admin_ui
