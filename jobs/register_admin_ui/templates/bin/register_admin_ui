@@ -1,0 +1,53 @@
+%w[uaa_url admin_client_secret client_id client_secret admin_scopes user_scopes admins users].each do |var|
+  fail "Please make sure #{var.upcase} is set" unless ENV[var.upcase]
+  instance_variable_set "@#{var}".to_sym, ENV[var.upcase]
+end
+
+puts "Getting admin client token"
+`uaac target #{@uaa_url} --skip-ssl-validation`
+`uaac token client get admin --secret #{@admin_client_secret}`
+
+current_authorities = `uaac client get admin -a authorities`.scan(/: (.+)/).flatten
+unless current_authorities.include? "scim.write"
+  puts "Adding scim.write scope to admin client"
+  authorities = (current_authorities + ["scim.write"]).join(',')
+  puts `uaac client update admin --authorities #{authorities}`
+  puts `uaac token client get admin --secret #{@admin_client_secret}`
+end
+
+client_args = [
+  "--scope admin_ui.admin,admin_ui.user,openid",
+  "--authorities cloud_controller.admin,cloud_controller.read,cloud_controller.write,openid,scim.read",
+  "--autoapprove true",
+  "--authorized_grant_types authorization_code,client_credentials,refresh_token"
+]
+
+if `uaac client get #{@client_id}` =~ /NotFound/
+  puts "Creating #{@client_id} client"
+  cmd = [ "uaac client add #{@client_id}" ]
+  cmd += client_args + [ "--secret #{@client_secret}" ]
+  puts `#{cmd.join(' ')}`
+else
+  puts "Updating #{@client_id} client"
+  cmd = [ "uaac client update #{@client_id}" ]
+  puts `#{(cmd + client_args).join(' ')}`
+  puts `uaac secret set #{@client_id}" --secret #{@client_secret}`
+end
+
+roles = { admins: @admin_scopes.split(','), users: @user_scopes.split(',') }
+roles.each do |role, scopes|
+  scopes.each do |scope|
+    if `uaac group get #{scope}` =~ /NotFound/
+      puts "Adding group: #{scope}"
+      puts `uaac group add #{scope}`
+    end
+
+    members = instance_variable_get("@#{role}").sub(',', ' ')
+    unless members.empty?
+      puts "Adding members: #{members} to group: #{scope}"
+      puts `uaac member add #{scope} #{members}`
+    end
+  end
+end
+
+puts "Done"
