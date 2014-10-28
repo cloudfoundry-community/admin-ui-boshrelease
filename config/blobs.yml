@@ -6,19 +6,26 @@ libyaml/yaml-0.1.4.tgz:
   size: 471759
 ruby/bundler-1.2.1.gem:
   object_id: 458d4d9f-aa0e-488d-94d9-ca8b50d6dfb3
-  sha: !binary |
-    -
+  sha: !binary |-
     MGNiZTZhZDdhNDFmMDY0ZDZjMTFjMTA1ODQ2NWZmZmIxYmQ1ODA2OQ==
   size: 226816
 ruby/ruby-1.9.3-p448.tar.gz:
   object_id: 3fe8a983-f754-44c4-8694-0fba414eb5a7
-  sha: !binary |
-    -
+  sha: !binary |-
     YzdmNzM2ZTNiYzFjYTFlNjYxOWE5MTIxODM3ZGQwODQwYWFkNzdjZQ==
   size: 12559260
 ruby/rubygems-1.8.24.tgz:
   object_id: 824b70e4-8269-4e4b-a347-de17333f7971
-  sha: !binary |
-    -
+  sha: !binary |-
     MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
   size: 380101
+postgres/postgresql-9.0.3.tar.gz:
+  object_id: eea84b2b-7aca-4a65-af30-347fba4b28f3
+  sha: !binary |-
+    YzhmYjVkMWQ3OTMwZTc4MjExZTU1NGJiNTc1MTE4M2E4MTQ4ZDBlZQ==
+  size: 18335858
+sqlite/sqlite-autoconf-3070500.tar.gz:
+  object_id: 709b2b13-a1cd-47d5-8e09-028472b1695c
+  sha: !binary |-
+    NGUxMzM4NDk3YjhkYTUwYjg0MzA3MTkxYmIzNDE4ZTllYzU3MTVkNw==
+  size: 1551070
