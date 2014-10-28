@@ -2,8 +2,9 @@
 meta:
   network: cf1
   subdomain: (( merge || "admin" )
-  cf_admin_username: (( merge || "admin" )
-  cf_admin_password: (( merge || "admin" )
+  admin_ui_uaa_client:
+    id: (( merge || "admin-ui" ))
+    secret: (( merge ))
 
 name: admin-ui
 director_uuid: (( merge ))
@@ -13,37 +14,79 @@ release:
 compilation: (( merge ))
 update: (( merge ))
 networks: (( merge ))
+
 resource_pools:
 - name: small_z1
-  network: (( merge ))
+  network: (( meta.network ))
   size: (( auto ))
   stemcell: (( merge ))
   cloud_properties: (( merge ))
+
 jobs:
 - name: admin_ui
   template: admin_ui
   instances: 1
   resource_pool: small_z1
+  persistent_disk: 5120
   networks:
     - name: (( meta.network ))
       static_ips: (( static_ips(15) ))
+
+- name: register_admin_ui
+  template: register_admin_ui
+  instances: 1
+  resource_pool: small_z1
+  lifecycle: errand
+  networks:
+    - name: (( meta.network ))
+
+- name: deregister_admin_ui
+  template: deregister_admin_ui
+  instances: 1
+  resource_pool: small_z1
+  lifecycle: errand
+  networks:
+    - name: (( meta.network ))
+
 properties:
   cc:
     srv_api_uri: (( merge ))
   system_domain: (( merge ))
+  uaa:
+    url: (( merge ))
+    admin:
+      client_secret: (( merge ))
   admin_ui:
     cloud_controller_uri: (( properties.cc.srv_api_uri ))
     cloud_controller_ssl_verify_none: (( properties.ssl.skip_cert_verify ))
-    uaa_admin_credentials:
-      username: (( meta.cf_admin_username ))
-      password: (( meta.cf_admin_password ))
-    ui_admin_credentials:
-      username: (( merge || "admin" ))
-      password: (( merge || "admin" ))
-    ui_credentials:
-      username: (( merge || "user" ))
-      password: (( merge || "user" ))
     uri: (( meta.subdomain "." properties.system_domain ))
+    users: ~
+    admins: (( merge ))
+    uaa:
+      url: (( properties.uaa.url ))
+      admin_client_secret: (( properties.uaa.admin.client_secret ))
+      client:
+        id: (( meta.admin_ui_uaa_client.id ))
+        secret: (( meta.admin_ui_uaa_client.secret ))
+      scopes:
+        admin: ~
+        user: ~
+  
+    ccdb: 
+      scheme: (( databases.db_scheme ))
+      address: (( databases.address ))
+      port: (( databases.port ))
+      username: ccadmin
+      password: (( databases.roles.ccadmin.password ))
+      database: ccdb
+    uaadb:
+      scheme: (( databases.db_scheme ))
+      address: (( databases.address ))
+      port: (( databases.port ))
+      username: uaaadmin
+      password: (( databases.roles.uaaadmin.password ))
+      database: uaadb
+
   ssl:
     skip_cert_verify: (( merge || false ))
   networks:
@@ -53,3 +96,10 @@ properties:
     password: (( merge ))
     address: (( merge ))
     port: (( merge ))
+  databases: 
+    db_scheme: (( merge ))
+    address: (( merge ))
+    port: (( merge ))
+    roles: (( merge ))
+
+

@@ -4,8 +4,17 @@ name: admin-ui
 meta:
   network: cf2
   subdomain: admin
-  cf_admin_username: admin
-  cf_admin_password: admin
+  admin_ui_uaa_client:
+    secret: c1oudc0w
+
+properties:
+  admin_ui:
+    admins: [ admin ]
+
+resource_pools:
+- name: small_z1
+  network: cf2
+  size: 3
 
 compilation:
   network: cf2
