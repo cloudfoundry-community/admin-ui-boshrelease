@@ -1,31 +1,29 @@
 ---
 libyaml/yaml-0.1.4.tgz:
   object_id: 720a650d-0b1c-4918-92de-7be57b679fe7
-  sha: !binary |-
-    ZTBlNWUwOTE5MmFiMTBhNjA3ZTNkYTI5NzBkYjQ5MjExOGY1NjBmMg==
+  sha: e0e5e09192ab10a607e3da2970db492118f560f2
   size: 471759
 ruby/bundler-1.2.1.gem:
   object_id: 458d4d9f-aa0e-488d-94d9-ca8b50d6dfb3
-  sha: !binary |-
-    MGNiZTZhZDdhNDFmMDY0ZDZjMTFjMTA1ODQ2NWZmZmIxYmQ1ODA2OQ==
+  sha: 0cbe6ad7a41f064d6c11c1058465fffb1bd58069
   size: 226816
 ruby/ruby-1.9.3-p448.tar.gz:
   object_id: 3fe8a983-f754-44c4-8694-0fba414eb5a7
-  sha: !binary |-
-    YzdmNzM2ZTNiYzFjYTFlNjYxOWE5MTIxODM3ZGQwODQwYWFkNzdjZQ==
+  sha: c7f736e3bc1ca1e6619a9121837dd0840aad77ce
   size: 12559260
 ruby/rubygems-1.8.24.tgz:
   object_id: 824b70e4-8269-4e4b-a347-de17333f7971
-  sha: !binary |-
-    MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
+  sha: 30f27047e74f7943117736a0d3e224994fee0905
   size: 380101
 postgres/postgresql-9.0.3.tar.gz:
   object_id: 4c28f40f-3d59-4015-9765-bead803093ad
-  sha: !binary |-
-    YzhmYjVkMWQ3OTMwZTc4MjExZTU1NGJiNTc1MTE4M2E4MTQ4ZDBlZQ==
+  sha: c8fb5d1d7930e78211e554bb5751183a8148d0ee
   size: 18335858
 sqlite/sqlite-autoconf-3070500.tar.gz:
   object_id: f603856f-11db-4b56-91dc-5c6f3ce6fedd
-  sha: !binary |-
-    NGUxMzM4NDk3YjhkYTUwYjg0MzA3MTkxYmIzNDE4ZTllYzU3MTVkNw==
+  sha: 4e1338497b8da50b84307191bb3418e9ec5715d7
   size: 1551070
+mysql/client-5.1.62-rel13.3-435-Linux-x86_64.tar.gz:
+  object_id: 6adad680-4e5d-4e0b-b419-09a951455928
+  sha: 6e5a17195831688a5f14f20aa5d9cd5d5f4164db
+  size: 4105211

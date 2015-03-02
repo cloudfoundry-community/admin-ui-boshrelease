@@ -5,6 +5,7 @@ dependencies:
   - ruby
   - libpq
   - sqlite
+  - mysqlclient
 
 files:
   - admin_ui/{Gemfile,Gemfile.lock}
