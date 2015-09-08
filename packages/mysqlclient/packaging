@@ -1,10 +1,14 @@
-set -e -x
+set -e
 
-VERSION=5.1.62-rel13.3-435-Linux-x86_64
-# Percona binary Linux build - minor change
-tar zxvf mysql/client-$VERSION.tar.gz
+MYSQL_CLIENT_VERSION=6.1.6
 
-cd client-$VERSION
-for x in bin include lib; do
-  cp -a ${x} ${BOSH_INSTALL_TARGET}
-done
+tar xzf mysqlclient/mysql-connector-c-${MYSQL_CLIENT_VERSION}-src.tar.gz
+(
+  set -e
+  cd mysql-connector-c-${MYSQL_CLIENT_VERSION}-src
+  mkdir bld
+  cd bld
+  cmake .. -DCMAKE_INSTALL_PREFIX=${BOSH_INSTALL_TARGET}
+  make
+  make install
+)

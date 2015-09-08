@@ -27,3 +27,7 @@ mysql/client-5.1.62-rel13.3-435-Linux-x86_64.tar.gz:
   object_id: 6adad680-4e5d-4e0b-b419-09a951455928
   sha: 6e5a17195831688a5f14f20aa5d9cd5d5f4164db
   size: 4105211
+mysqlclient/mysql-connector-c-6.1.6-src.tar.gz:
+  object_id: e640b8d3-ae0f-4103-8d44-c0f9644d7c41
+  sha: 2444586365c2c58e7ca2397d4617e5fe19f9f246
+  size: 3475044
