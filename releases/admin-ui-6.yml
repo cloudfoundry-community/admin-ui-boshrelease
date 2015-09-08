@@ -1,0 +1,69 @@
+---
+packages:
+- name: admin_ui
+  version: dc07544c951469dffe507dc85d6c8f6a773b60a0
+  fingerprint: dc07544c951469dffe507dc85d6c8f6a773b60a0
+  sha1: 759ab83e6bc06b82ee353d42fae6ad6dec26b141
+  dependencies:
+  - libpq
+  - mysqlclient
+  - ruby
+  - sqlite
+- name: common
+  version: 4987d674c748c83aa0bc2d4965e73659e87920c7
+  fingerprint: 4987d674c748c83aa0bc2d4965e73659e87920c7
+  sha1: 890c7c9465e35b7ca39d127c54238a2027d4ec4a
+  dependencies: []
+- name: libpq
+  version: 826bdeb17b087a4950c232f1830f15b1ad793daa
+  fingerprint: 826bdeb17b087a4950c232f1830f15b1ad793daa
+  sha1: b8a56efd3400a025b0c49d9fd5252d997ea15240
+  dependencies: []
+- name: libyaml
+  version: 681bb455c35ef17cabbd41344f924cb61c2bb8e7
+  fingerprint: 681bb455c35ef17cabbd41344f924cb61c2bb8e7
+  sha1: a8ae1088bc79d446ae1f0616371e4e32cf345d0f
+  dependencies: []
+- name: mysqlclient
+  version: d7d399ebad3289a0ee70a78663daa6ee41cff6cd
+  fingerprint: d7d399ebad3289a0ee70a78663daa6ee41cff6cd
+  sha1: c6ec8f8418879304093add614bf395b0edaac89d
+  dependencies: []
+- name: ruby
+  version: c146cbd35dd2f549b0f90c7f40d5a0e5cb3698c4
+  fingerprint: c146cbd35dd2f549b0f90c7f40d5a0e5cb3698c4
+  sha1: 2dae18aea1b550bec7ccd6cc0e9ee889876eeb81
+  dependencies:
+  - libyaml
+- name: sqlite
+  version: af44d44e58fffd069459cb63f6fcc37c6326e370
+  fingerprint: af44d44e58fffd069459cb63f6fcc37c6326e370
+  sha1: 43c7c2e86d69bf37fb8358af680d933bd734dafd
+  dependencies: []
+- name: uaac
+  version: 73b451bc38c388f720f85977d47f1d7e996c0776
+  fingerprint: 73b451bc38c388f720f85977d47f1d7e996c0776
+  sha1: 78c7ac9ae354670bf5751abc1ee84b2a59dba583
+  dependencies:
+  - ruby
+jobs:
+- name: admin_ui
+  version: b669acee652f10f4e507860f538c6a4f473b998e
+  fingerprint: b669acee652f10f4e507860f538c6a4f473b998e
+  sha1: 7b5721b2bd52ad3193e9a4d9ceebae26d6650c1a
+- name: deregister_admin_ui
+  version: 934fd06544cad9582cdec54228ba7ca020951589
+  fingerprint: 934fd06544cad9582cdec54228ba7ca020951589
+  sha1: 923990d1547da985e9fc9b42f83039d911437b3c
+- name: register_admin_ui
+  version: e966d9d653d167dca1d69dbf4245bb8a21792548
+  fingerprint: e966d9d653d167dca1d69dbf4245bb8a21792548
+  sha1: bb5fade5e1bc61c6af7bb00423d16ea9b8f05a3f
+license:
+  version: 4f42f5d7dbf8faf6a66fd8a2a6aaef85f0d65003
+  fingerprint: 4f42f5d7dbf8faf6a66fd8a2a6aaef85f0d65003
+  sha1: c9f08cb4d42df2038187718f1efc36cc48462602
+commit_hash: 957b96ab
+uncommitted_changes: true
+name: admin-ui
+version: '6'
