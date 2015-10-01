@@ -31,7 +31,7 @@ else
   puts "Updating #{@client_id} client"
   cmd = [ "uaac client update #{@client_id}" ]
   puts `#{(cmd + client_args).join(' ')}`
-  puts `uaac secret set #{@client_id}" --secret #{@client_secret}`
+  puts `uaac secret set "#{@client_id}" --secret #{@client_secret}`
 end
 
 roles = { admins: @admin_scopes.split(','), users: @user_scopes.split(',') }
