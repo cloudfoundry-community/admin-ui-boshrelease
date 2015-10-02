@@ -3,7 +3,7 @@ check process admin_ui
   start program "/var/vcap/jobs/admin_ui/bin/admin_ui_ctl start"
   stop program "/var/vcap/jobs/admin_ui/bin/admin_ui_ctl stop"
   group vcap
-  if totalmem > 500 Mb for 2 cycles then restart
+  if totalmem > 1 Gb for 2 cycles then restart
 
 <% if_p("admin_ui.uri") do %>
 check process admin_ui_cf-registrar
