@@ -94,8 +94,9 @@ properties:
   nats:
     user: (( merge ))
     password: (( merge ))
-    address: (( merge ))
     port: (( merge ))
+    machines: (( merge ))
+    address: (( machines.[0] ))
   databases: 
     db_scheme: (( merge ))
     address: (( merge ))
