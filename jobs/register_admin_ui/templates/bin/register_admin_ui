@@ -42,7 +42,7 @@ roles.each do |role, scopes|
       puts `uaac group add #{scope}`
     end
 
-    members = instance_variable_get("@#{role}").sub(',', ' ')
+    members = instance_variable_get("@#{role}").gsub(',', ' ')
     unless members.empty?
       puts "Adding members: #{members} to group: #{scope}"
       puts `uaac member add #{scope} #{members}`
