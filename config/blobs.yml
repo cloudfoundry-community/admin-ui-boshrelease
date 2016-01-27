@@ -31,3 +31,15 @@ mysqlclient/mysql-connector-c-6.1.6-src.tar.gz:
   object_id: e640b8d3-ae0f-4103-8d44-c0f9644d7c41
   sha: 2444586365c2c58e7ca2397d4617e5fe19f9f246
   size: 3475044
+libyaml/yaml-0.1.5.tar.gz:
+  object_id: 3b7b6111-e9a6-468b-8035-46ff800224fd
+  sha: 8b78cb9f759c7d80db8a7328c0ebecfe34fde737
+  size: 504897
+ruby/bundler-1.11.2.gem:
+  object_id: 2c164a12-252b-402b-a21d-bc73cab1b438
+  sha: 8eb956dec72da753d3d2a2126c78508b17af434e
+  size: 263168
+ruby/ruby-2.2.4.tar.gz:
+  object_id: df2a8e6d-04cd-4801-b657-9f975aeca8c5
+  sha: 818e5e157f76d4912ba3a7c7b4fc5156105e83c3
+  size: 16638151
