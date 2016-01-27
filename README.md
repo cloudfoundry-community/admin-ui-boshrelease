@@ -18,6 +18,7 @@ To deploy it you will need the source repository that contains templates:
 git clone https://github.com/cloudfoundry-community/admin-ui-boshrelease.git
 cd admin-ui-boshrelease
 git checkout v7
+git submodule update
 ```
 
 ### bosh-lite/warden deployments
