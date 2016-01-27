@@ -17,7 +17,7 @@ To deploy it you will need the source repository that contains templates:
 ```
 git clone https://github.com/cloudfoundry-community/admin-ui-boshrelease.git
 cd admin-ui-boshrelease
-git checkout v6
+git checkout v7
 ```
 
 ### bosh-lite/warden deployments
@@ -30,7 +30,7 @@ bosh deploy
 bosh run errand register_admin_ui
 ```
 
-Now you can browse to [http://admin.10.244.0.34.xip.io](http://admin.10.244.0.34.xip.io) and login with your cloud foundry admin user.
+Now you can browse to [http://admin.bosh-lite.com](http://admin.bosh-lite.com) and login with your cloud foundry admin user.
 
 ### Errands
 When deployed you can register the admin-ui with the uaa by running:
