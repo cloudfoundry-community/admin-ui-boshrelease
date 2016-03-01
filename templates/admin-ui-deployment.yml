@@ -57,6 +57,7 @@ properties:
     admin:
       client_secret: (( merge ))
   admin_ui:
+    max_memory: "512 Mb"
     cloud_controller_uri: (( properties.cc.srv_api_uri ))
     cloud_controller_ssl_verify_none: (( properties.ssl.skip_cert_verify ))
     uri: (( meta.subdomain "." properties.system_domain ))

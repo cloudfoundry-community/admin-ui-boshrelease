@@ -31,6 +31,9 @@ properties:
     default: false
   admin_ui.uri:
     description: "Uri to register with the router, also requires the apps network to be set"
+  admin_ui.max_memory:
+    description: "Maximum memory for the admin ui process. Monit restarts process if limit is reached."
+    default: "1 Gb"
   networks.apps:
     description: "The App network name"
 
