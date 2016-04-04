@@ -1,0 +1,147 @@
+compilation:
+  cloud_properties:
+    availability_zone: us-west-2a
+    instance_type: t2.medium
+  network: default
+  reuse_compilation_vms: true
+  workers: 4
+director_uuid: ### YOUR UUID ###
+jobs:
+- default_network:
+  - name: default
+    static_ips:
+    - 10.0.66.0
+  instances: 1
+  name: admin_ui
+  networks:
+  - name: default
+    static_ips:
+    - 10.0.66.0
+  persistent_disk: 5120
+  resource_pool: default
+  templates:
+  - name: admin_ui
+- instances: 1
+  lifecycle: errand
+  name: register_admin_ui
+  networks:
+  - name: default
+  resource_pool: errand
+  template: register_admin_ui
+- instances: 1
+  lifecycle: errand
+  name: deregister_admin_ui
+  networks:
+  - name: default
+  resource_pool: errand
+  template: deregister_admin_ui
+meta:
+  stemcell:
+    name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+    version: 3196
+name: admin-ui
+networks:
+- name: default
+  subnets:
+  - cloud_properties:
+      security_groups:
+      - sg-01f24c66
+      - sg-02f24c65
+      - sg-09f24c6e
+      subnet: ### YOUR SUBNET ID ###
+    dns:
+    - 10.0.0.2
+    gateway: 10.0.64.1
+    range: 10.0.64.0/19
+    reserved:
+    - 10.0.64.0 - 10.0.65.255
+    - 10.0.66.20 - 10.0.95.255
+    static:
+    - 10.0.66.0 - 10.0.66.9
+  type: manual
+properties:
+  admin_ui:
+    admins:
+    - admin
+    ccdb:
+      address: 10.0.65.51
+      database: ccdb
+      password: admin
+      port: 5524
+      scheme: postgres
+      username: ccadmin
+    cloud_controller_ssl_verify_none: true
+    cloud_controller_uri: https://api.cf.### YOUR DOMAIN ###
+    max_memory: 2 Gb
+    uaa:
+      admin_client_secret: admin-secret
+      client:
+        id: admin-ui
+        secret: admin-ui-secret
+      scopes:
+        admin: null
+        user: null
+      url: https://uaa.cf.### YOUR DOMAIN ###
+    uaadb:
+      address: 10.0.65.51
+      database: uaadb
+      password: admin
+      port: 5524
+      scheme: postgres
+      username: uaaadmin
+    uri: admin.cf.### YOUR DOMAIN ###
+    users: null
+  cc:
+    srv_api_uri: https://api.cf.### YOUR DOMAIN ###
+  databases:
+    address: 10.0.65.51
+    db_scheme: postgres
+    port: 5524
+    roles:
+    - name: ccadmin
+      password: admin
+      tag: admin
+    - name: uaaadmin
+      password: admin
+      tag: admin
+  nats:
+    address: 10.0.65.3
+    password: nats
+    port: 4222
+    user: nats
+  networks:
+    apps: default
+  ssl:
+    skip_cert_verify: true
+  system_domain: cf.### YOUR DOMAIN ###
+  uaa:
+    admin:
+      client_secret: admin-secret
+    url: https://uaa.cf.### YOUR DOMAIN ###
+releases:
+- name: admin-ui
+  version: 8
+resource_pools:
+- cloud_properties:
+    availability_zone: us-west-2a
+    instance_type: t2.medium
+  name: default
+  network: default
+  stemcell:
+    name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+    version: 3196
+- cloud_properties:
+    availability_zone: us-west-2a
+    instance_type: t2.small
+  name: errand
+  network: default
+  stemcell:
+    name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+    version: 3196
+update:
+  canaries: 1
+  canary_watch_time: 30000-600000
+  max_in_flight: 1
+  serial: true
+  update_watch_time: 5000-600000
+
