@@ -120,7 +120,7 @@ properties:
     url: https://uaa.cf.### YOUR DOMAIN ###
 releases:
 - name: admin-ui
-  version: 8
+  version: latest
 resource_pools:
 - cloud_properties:
     availability_zone: us-west-2a
