@@ -17,7 +17,7 @@ db_uri: sqlite://var/vcap/store/admin_ui/store.db
 doppler_data_file: /var/vcap/store/admin_ui/doppler_data.json
 doppler_reconnect_delay: 300
 doppler_rollup_interval: 30
-event_days: 7
+event_days: <%= p("admin_ui.event_days") %>
 log_file_sftp_keys: [ ]
 log_files: [/var/vcap/sys/log/admin_ui/admin_ui.log]
 log_file: /var/vcap/sys/log/admin_ui/admin_ui.log

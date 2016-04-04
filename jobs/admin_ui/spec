@@ -37,6 +37,9 @@ properties:
   networks.apps:
     description: "The App network name"
 
+  admin_ui.event_days:
+    description: "Number of days to keep events"
+    default: 1
   admin_ui.uaadb.scheme:
     description: "UAA db scheme"
     default: postgres
