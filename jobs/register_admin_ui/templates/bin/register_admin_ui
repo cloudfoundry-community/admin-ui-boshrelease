@@ -1,3 +1,5 @@
+#!/bin/env ruby
+
 %w[uaa_url admin_client_secret client_id client_secret admin_scopes user_scopes admins users].each do |var|
   fail "Please make sure #{var.upcase} is set" unless ENV[var.upcase]
   instance_variable_set "@#{var}".to_sym, ENV[var.upcase]
@@ -17,7 +19,7 @@ end
 
 client_args = [
   "--scope admin_ui.admin,admin_ui.user,openid",
-  "--authorities cloud_controller.admin,cloud_controller.read,cloud_controller.write,openid,scim.read",
+  "--authorities clients.write,cloud_controller.admin,cloud_controller.read,cloud_controller.write,doppler.firehose,openid,scim.read,scim.write",
   "--autoapprove true",
   "--authorized_grant_types authorization_code,client_credentials,refresh_token"
 ]
