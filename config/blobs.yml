@@ -1,8 +1,4 @@
 ---
-libyaml/yaml-0.1.4.tgz:
-  object_id: 720a650d-0b1c-4918-92de-7be57b679fe7
-  sha: e0e5e09192ab10a607e3da2970db492118f560f2
-  size: 471759
 ruby/bundler-1.2.1.gem:
   object_id: 458d4d9f-aa0e-488d-94d9-ca8b50d6dfb3
   sha: 0cbe6ad7a41f064d6c11c1058465fffb1bd58069
