@@ -39,3 +39,7 @@ ruby/ruby-2.2.4.tar.gz:
   object_id: df2a8e6d-04cd-4801-b657-9f975aeca8c5
   sha: 818e5e157f76d4912ba3a7c7b4fc5156105e83c3
   size: 16638151
+libyaml/yaml-0.1.6.tar.gz:
+  object_id: 5b63285a-fb3f-4508-bbbe-d5beedb7c109
+  sha: f3d404e11bec3c4efcddfd14c42d46f1aabe0b5d
+  size: 503012
