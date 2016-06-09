@@ -22,7 +22,12 @@ log_file_sftp_keys: [ ]
 log_files: [/var/vcap/sys/log/admin_ui/admin_ui.log]
 log_file: /var/vcap/sys/log/admin_ui/admin_ui.log
 log_file_page_size: 51200
-mbus: nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= p("nats.address") %>:<%= p("nats.port") %>
+<% if_p("nats.address") do |address| %>
+mbus: nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= address %>:<%= p("nats.port") %>
+<% end %>
+<% if_p("nats.machines") do |machines| %>
+mbus: nats://<%= p("nats.user") %>:<%= p("nats.password") %>@<%= machines[0] %>:<%= p("nats.port") %>
+<% end %>
 monitored_components: [NATS, CloudController, DEA, HealthManager, Router, -Provisioner, ALL]
 nats_discovery_interval: 30
 nats_discovery_timeout: 10
